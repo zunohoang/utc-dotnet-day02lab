@@ -1,0 +1,17 @@
+﻿@model (int Id, string Name, decimal Price)
+@{
+    ViewData["Title"] = "Product Detail";
+}
+<div class="p-4 bg-white rounded shadow-sm">
+    <h2>Product Detail</h2>
+    <p><strong>ID:</strong> @Model.Id</p>
+    <p><strong>Name:</strong> @Model.Name</p>
+    <p><strong>Price:</strong> @Model.Price.ToString("#,##0") VND</p>
+
+    @if (!string.IsNullOrEmpty((string?)ViewBag.Slug))
+    {
+        <p class="text-muted">Slug: @ViewBag.Slug</p>
+    }
+
+    <a class="btn btn-secondary" asp-controller="Products" asp-action="Index">Back</a>
+</div>

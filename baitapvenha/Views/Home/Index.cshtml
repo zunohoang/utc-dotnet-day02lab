@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+<div class="p-4 bg-white rounded shadow-sm">
+    <h1>@ViewData["Title"]</h1>
+    <p>@ViewBag.Message</p>
+
+    <p>
+        Đi tới <a asp-controller="Products" asp-action="Index">Products</a>
+    </p>
+</div>

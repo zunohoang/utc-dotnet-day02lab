@@ -1,0 +1,39 @@
+﻿@model IEnumerable<(int Id, string Name, decimal Price)>
+@{
+    ViewData["Title"] = "Products";
+}
+<div class="p-4 bg-white rounded shadow-sm">
+    <h2>Products</h2>
+
+    <form method="get" class="row g-2 mb-3">
+        <div class="col-auto">
+            <input name="q" class="form-control" placeholder="Tìm sản phẩm..." value="@Context.Request.Query["q"]" />
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </form>
+
+    <table class="table table-bordered align-middle">
+        <thead class="table-light">
+            <tr><th>ID</th><th>Name</th><th>Price (VND)</th><th></th></tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.Id</td>
+                    <td>@p.Name</td>
+                    <td>@p.Price.ToString("#,##0")</td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-secondary"
+                           asp-controller="Products" asp-action="Detail" asp-route-id="@p.Id"
+                           asp-route-slug="@p.Name.ToLower().Replace(' ', '-')">
+                            Detail
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

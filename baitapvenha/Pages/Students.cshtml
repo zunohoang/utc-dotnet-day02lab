@@ -1,0 +1,18 @@
+@page
+@model baitapvenha.Pages.StudentsModel
+
+<h1>Danh sách h?c sinh</h1>
+<ul>
+    @foreach (var student in Model.StudentList)
+    {
+        <li>
+            <a asp-page="./Students" asp-route-name="@student">@student</a>
+        </li>
+    }
+</ul>
+
+@if (!string.IsNullOrEmpty(Model.StudentDetail))
+{
+    <h2>Chi ti?t h?c sinh</h2>
+    <p>@Model.StudentDetail</p>
+}

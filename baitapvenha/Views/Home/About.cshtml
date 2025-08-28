@@ -1,0 +1,12 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "About";
+}
+<div class="p-4 bg-white rounded shadow-sm">
+    <h2>About</h2>
+    <ul>
+        <li>Course: @Model.Course</li>
+        <li>Author: @Model.Author</li>
+        <li>Generated: @Model.Date</li>
+    </ul>
+</div>
